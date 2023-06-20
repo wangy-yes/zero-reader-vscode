@@ -10,12 +10,14 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./src/index.js",
   "contributes": {
-    "commands": [{
-      "command": "zero-reader.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "zero-reader.selectFile",
+        "title": "Hello World"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
