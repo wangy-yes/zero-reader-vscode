@@ -3,13 +3,16 @@
   "displayName": "zero-reader",
   "description": "read in console.",
   "version": "0.0.1",
+  "publisher": "Wangyes",
   "engines": {
     "vscode": "^1.79.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onView:ZeroSidebar"
+  ],
   "main": "./src/index.js",
   "contributes": {
     "commands": [
@@ -17,7 +20,24 @@
         "command": "zero-reader.selectFile",
         "title": "Hello World"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ZeroSidebar",
+          "title": "zero-reader",
+          "icon": "images/zero.svg"
+        }
+      ]
+    },
+    "views": {
+      "ZeroSidebar": [
+        {
+          "id": "chapters",
+          "name": "目录"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
