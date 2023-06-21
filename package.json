@@ -24,20 +24,26 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "ZeroSidebar",
+          "id": "zero_sidebar",
           "title": "zero-reader",
           "icon": "images/zero.svg"
         }
       ]
     },
     "views": {
-      "ZeroSidebar": [
+      "zero_sidebar": [
         {
           "id": "chapters",
           "name": "目录"
         }
       ]
-    }
+    },
+    "viewsWelcome": [
+      {
+        "view": "chapters",
+        "contents": "没有发现文件， [请先选择文件](https://www.npmjs.com/).\n[选择文件](command:zero-reader.selectFile)"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",

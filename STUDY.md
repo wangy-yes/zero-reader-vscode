@@ -104,10 +104,11 @@ vsce package
 ```
 运行后会在根目录生成 .vsix 文件
 package.json必须包含发布者信息添加 "publisher": "Wangyes"
+插件在扩展中显示的图片，不能使用SVG, "icon": "images/zero.png",
 
 ## 拓展
 ### 设置侧边栏视图
-在contributes中设置
+1.在 contributes 中设置容器
 ```js
 // 视图容器
 "viewsContainers": {
@@ -115,7 +116,7 @@ package.json必须包含发布者信息添加 "publisher": "Wangyes"
     {
       "id": "ZeroSidebar",
       "title": "zero-reader",
-      "icon": "images/zero.svg"
+      "icon": "images/zero.svg" // 图标选择svg文件
     }
   ]
 },
@@ -127,5 +128,77 @@ package.json必须包含发布者信息添加 "publisher": "Wangyes"
       "name": "目录"
     }
   ]
+}
+```
+2.设置触发事件为打开侧边视图时触发activate事件（activate事件只会触发一次）
+```js
+"activationEvents": [
+  "onView:ZeroSidebar" // 对应视图id
+],
+```
+3.创建 TreeView
+```js
+// 定义目录单项并添加命令
+class Chapter extends vscode.TreeItem {
+  constructor(args) {
+    super(args.title, vscode.TreeItemCollapsibleState.None)//不折叠
+    this.command = {
+      command: 'zero-reader.jumpChapter',
+      title: 'Jump Chapter 跳转章节',
+      arguments: [args]
+    }
+  }
+}
+// 定义目录
+class ChapterList {
+  constructor(chapters) {
+    this.chapters = chapters
+  }
+  // 当前ui展示项
+  getTreeItem (element) {
+    return element
+  }
+  // 当折叠项打开时执行的函数
+  getChildren (element) {
+    if (element) {
+      return Promise.resolve([])
+    } else {
+      return this.chapters.map(i => new Chapter(i))
+    }
+  }
+}
+// 创建树形视图
+let chapterList = new ChapterList(chapterData)
+vscode.window.registerTreeDataProvider("chapters", chapterList)
+```
+
+### 创建终端
+```js
+const term = vscode.window.createTerminal('cd')
+term.show() // 显示终端
+term.sendText(`cd ${filePath}`) // 执行指令
+```
+### 创建输出
+```js
+let outputChannel = vscode.window.createOutputChannel('Reader')
+  outputChannel.clear() // 清空输出控制台
+  outputChannel.append(data) // 添加文本
+  outputChannel.appendLine(data) // 添加换行文本
+  outputChannel.show() // 打开输出控制台
+```
+### 进度条
+```js
+const progress = (args, fn) => {
+  vscode.window.withProgress({
+    location: vscode.ProgressLocation.Notification,
+    title: "载入xxxx的进度...",
+    cancellable: true
+  }, (progress) => {
+    progress.report({ increment: 50, message: "正在加载目录..." }) //increment:进度，message：提示文本
+    return new Promise(async resolve => {
+      await fn(args)
+      resolve()
+    })
+  })
 }
 ```
