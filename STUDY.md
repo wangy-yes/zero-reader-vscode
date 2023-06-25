@@ -243,3 +243,27 @@ bottom.text = "选择文件" // 添加label
 bottom.command = "extension.selectFile" // 注册事件命令
 bottom.show() // 展示
 ```
+
+### 缓存
+在 package.json 中设置插件配置以编辑书籍路径并实现缓存
+```json
+"configuration": {
+  "title": "Zero-Reader",
+  "type": "object",
+  "properties": {
+    "bookReader.filePath": {
+      "type": "string",
+      "default": "",
+      "description": "本地书籍路径"
+    }
+  }
+}
+```
+获取配置
+```js
+vscode.workspace.getConfiguration().get("zeroReader.filePath")
+```
+更新配置
+```js
+vscode.workspace.getConfiguration().update("zeroReader.filePath", filePath, true)
+```

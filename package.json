@@ -43,7 +43,18 @@
         "view": "chapters",
         "contents": "没有发现文件， [请先选择文件](https://www.npmjs.com/).\n[选择文件](command:zero-reader.selectFile)"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Zero-Reader",
+      "type": "object",
+      "properties": {
+        "zeroReader.filePath": {
+          "type": "string",
+          "default": "",
+          "description": "本地书籍路径"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",

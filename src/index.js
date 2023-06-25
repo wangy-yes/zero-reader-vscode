@@ -7,6 +7,12 @@ const getBook = require('./book')
  */
 function activate (context) {
 	console.log('Congratulations, your extension "zero-reader" is now active!')
+	// 如果有缓存书籍路径，下次默认打开该书籍
+	const filePath = vscode.workspace.getConfiguration().get("zeroReader.filePath")
+	if (filePath) {
+		generateChapter(filePath) // 加载目录
+		getBook(filePath)// 加载书籍,在控制台显示
+	}
 
 	// 添加状态栏按钮
 	let bottom = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0)
@@ -14,6 +20,7 @@ function activate (context) {
 	bottom.command = "zero-reader.selectFile"
 	bottom.show()
 
+	// 选择文件后执行命令
 	const selectFile = vscode.commands.registerCommand('zero-reader.selectFile', function () {
 		vscode.window.showOpenDialog({
 			canSelectFolders: false, // 禁止选择文件夹
@@ -26,6 +33,7 @@ function activate (context) {
 		}).then(files => {
 			if (files) {
 				let filePath = files[0].fsPath
+				vscode.workspace.getConfiguration().update("zeroReader.filePath", filePath, true) // 更新文件路径
 				try {
 					generateChapter(filePath) // 加载目录
 				} catch (e) {
