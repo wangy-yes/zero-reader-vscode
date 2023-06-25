@@ -1,5 +1,6 @@
 const vscode = require('vscode')
 const fs = require('fs')
+const generateChapter = require('./chapter')
 
 let outputChannel = null
 let bookData = null
@@ -53,6 +54,22 @@ vscode.commands.registerCommand('zero-reader.jumpChapter', args => {
   // console.log(args, 'args') // {title,startLine,endLine}
   // 输入章节标题作为 keyword 进行跳转
   jumpChapter(args.title)
+})
+
+// 快捷隐藏按钮
+let flag = true
+vscode.commands.registerCommand('zero-reader.bossCode', () => {
+  if (outputChannel) {
+    if (flag) {
+      outputChannel.dispose()
+      generateChapter('')
+    } else {
+      const filePath = vscode.workspace.getConfiguration().get("zeroReader.filePath")
+      getBook(filePath)
+      generateChapter(filePath)
+    }
+    flag = !flag
+  }
 })
 
 module.exports = getBook

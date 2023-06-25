@@ -245,7 +245,7 @@ bottom.show() // 展示
 ```
 
 ### 缓存
-在 package.json 中设置插件配置以编辑书籍路径并实现缓存
+在 package.json 的 contributes 中设置插件配置以编辑书籍路径并实现缓存
 ```json
 "configuration": {
   "title": "Zero-Reader",
@@ -266,4 +266,17 @@ vscode.workspace.getConfiguration().get("zeroReader.filePath")
 更新配置
 ```js
 vscode.workspace.getConfiguration().update("zeroReader.filePath", filePath, true)
+```
+
+### 快捷键
+在 package.json 的 contributes 中设置快捷键
+```json
+"keybindings": [
+  {
+    "command": "extension.selectFile",
+    "key": "ctrl+m",
+    "mac": "cmd+m",
+    "when": "textInputFocus"
+  }
+]
 ```

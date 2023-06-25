@@ -62,7 +62,7 @@ function generateChaptersFromTextFile (filePath) {
       currentChapter['endLine'] = index + 1 // 记录章节结束行号（循环更新结束行，直到下次匹配到currentChapter，更新下一个）
     }
   })
-  vscode.window.showInformationMessage('目录导入成功！')
+  vscode.window.setStatusBarMessage('目录导入成功！', 1000)
   return chapters
 }
 

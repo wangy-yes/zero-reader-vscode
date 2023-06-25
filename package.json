@@ -54,7 +54,14 @@
           "description": "本地书籍路径"
         }
       }
-    }
+    },
+    "keybindings": [
+      {
+        "command": "zero-reader.bossCode",
+        "key": "ctrl+m",
+        "mac": "cmd+m"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
