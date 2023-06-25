@@ -96,8 +96,8 @@ yo code
 - viewsWelcome
 - walkthroughs
 
-## 发布
-使用 vsce 打包发布
+## 打包
+使用 vsce 打包
 ```bash
 npm  i vsce -g
 vsce package
@@ -107,6 +107,20 @@ package.json必须包含发布者信息添加 "publisher": "Wangyes"
 插件在扩展中显示的图片，不能使用SVG, "icon": "images/zero.png",
 README 文件需要进行修改，第一行不做修改会报错不让打包
 插件打包会提示添加 LICENSE 文件，可忽略，我添加的MIT LICENSE
+## 发布
+发布在 vscode 扩展市场需要 visualstudio 发布者账号
+- 创建发布者账号 https://marketplace.visualstudio.com/manage (老版命令 vsce create-publisher your-publisher-name 已经无法创建)
+- 然后可以直接将打包好的 vsix 文件拖入进行发布，发布完成后 version 会变成绿色的对钩，或者使用 vsce 命令进行发布
+- 使用 vsce 命令需要确保有你已经有微软账号，没有的话先注册一个 https://login.live.com/
+- 然后访问 AzureDevOps , https://aka.ms/SignupAzureDevOps，同样登录后需要先创建一个项目
+- 然后在 AzureDevOps 右上角 user setting ,打开 Personal access tokens ,创建一个 token
+- 创建 token 时Organization要选择all accessible organizations，Scopes要选择Full access,否则后面会发布失败
+- 创建好token复制保存网站不会自动保存
+- 先使用命令 vsce login username (填写你创建的用户名这里需要与 package.json 中保持一致),这里会提示输入 token
+- 登录成功后使用 vsce publish 可以进行发布
+- 如果想让版本号自增，可以使用增量发布 vsce publish patch
+- 取消发布 vsce unpublish (publisher name).(extension name)
+- 
 
 ## 拓展
 ### 设置侧边栏视图
