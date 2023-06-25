@@ -1,8 +1,9 @@
-# Zero-Reader 说明
+# Zero-Reader 说明 
 
-This is the README for your extension "zero-reader". You can read books in console board with a simple choose to start.Using shortcut keys can quickly hide the contents and directories of the console. This plugin is for my own use and can be used for your reference.
 这是一款本地看小说的插件，选择 txt 文件后自动生成目录并在控制台输出中阅读。
 使用快捷键可以快速隐藏控制台内容及目录，该插件为本人自用，可供大家参考学习使用。
+You can read books in console board with a simple choose to start.Using shortcut keys can quickly hide the contents and directories of the console. This plugin is for my own use and can be used for your reference.
+
 > 该插件会在选择文件后自动记录文件所在位置路径，并在下次使用时自动打开该路径文件。
 > The plugin will automatically record the path where the file is located after selecting the file, and automatically open the path file the next time it is used.
 

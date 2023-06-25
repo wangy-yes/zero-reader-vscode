@@ -105,6 +105,8 @@ vsce package
 运行后会在根目录生成 .vsix 文件
 package.json必须包含发布者信息添加 "publisher": "Wangyes"
 插件在扩展中显示的图片，不能使用SVG, "icon": "images/zero.png",
+README 文件需要进行修改，第一行不做修改会报错不让打包
+插件打包会提示添加 LICENSE 文件，可忽略，我添加的MIT LICENSE
 
 ## 拓展
 ### 设置侧边栏视图
