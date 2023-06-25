@@ -185,6 +185,7 @@ let outputChannel = vscode.window.createOutputChannel('Reader')
   outputChannel.append(data) // 添加文本
   outputChannel.appendLine(data) // 添加换行文本
   outputChannel.show() // 打开输出控制台
+  outputChannel.dispose() // 销毁输出控制台
 ```
 ### 进度条
 ```js
@@ -201,4 +202,44 @@ const progress = (args, fn) => {
     })
   })
 }
+```
+### 文件状态
+可获取文件大小&创建修改时间
+```js
+fs.stat(filePath, (err, stats) => {
+  console.log(stats, 'stats')
+})
+
+atime:Wed Jun 21 2023 16:42:28 GMT+0800 (香港标准时间)
+atimeMs:1687336948312.8538
+birthtime:Wed Jun 21 2023 15:07:03 GMT+0800 (香港标准时间)
+birthtimeMs:1687331223561.081
+blksize:4096
+blocks:0
+ctime:Wed Jun 21 2023 15:07:22 GMT+0800 (香港标准时间)
+ctimeMs:1687331242769.1758
+dev:1456229637
+gid:0
+ino:2251799815833726
+mode:33206
+mtime:Wed Jun 21 2023 15:07:22 GMT+0800 (香港标准时间)
+mtimeMs:1687331242769.1758
+nlink:1
+rdev:0
+size:38
+
+```
+
+### 底部状态栏 statusbar
+```js
+// 创建底部状态栏消息，第一个参数为显示名，第二个参数为持续时间
+const bar = vscode.window.setStatusBarMessage('目录导入成功！', 1000) 
+bar.dispose() // 销毁
+bar.hide() // 隐藏
+
+// 状态栏按钮，第一个参数为布局左右，第二个参数为定位层级
+let bottom = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0)
+bottom.text = "选择文件" // 添加label
+bottom.command = "extension.selectFile" // 注册事件命令
+bottom.show() // 展示
 ```

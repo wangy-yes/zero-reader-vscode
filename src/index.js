@@ -1,11 +1,18 @@
 const vscode = require('vscode')
 const generateChapter = require('./chapter')
+const getBook = require('./book')
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate (context) {
 	console.log('Congratulations, your extension "zero-reader" is now active!')
+
+	// 添加状态栏按钮
+	let bottom = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0)
+	bottom.text = "选择文件"
+	bottom.command = "zero-reader.selectFile"
+	bottom.show()
 
 	const selectFile = vscode.commands.registerCommand('zero-reader.selectFile', function () {
 		vscode.window.showOpenDialog({
@@ -18,13 +25,14 @@ function activate (context) {
 			}
 		}).then(files => {
 			if (files) {
-				const filePath = files[0].fsPath
+				let filePath = files[0].fsPath
 				try {
-					generateChapter(filePath)
+					generateChapter(filePath) // 加载目录
 				} catch (e) {
 					console.log('创建目录失败:', e)
 					vscode.window.showErrorMessage('创建目录失败:', e)
 				}
+				getBook(filePath)// 加载书籍,在控制台显示
 			}
 		})
 	})

@@ -30,10 +30,7 @@ class ChapterList {
     }
   }
 }
-// 注册点击目录章节跳转命令
-vscode.commands.registerCommand('zero-reader.jumpChapter', args => {
-  console.log(args, 'args')
-})
+
 // 根据路径创建目录
 function generateChapter (filePath) {
   let chapterData = generateChaptersFromTextFile(filePath) // 获取目录
@@ -53,8 +50,9 @@ function generateChaptersFromTextFile (filePath) {
     const line = item.trim()
     let reg = /^([^Pp]|)+第(.{1,9})[章节卷集部篇回](.*)/  //不以p开头（PS:）,匹配第几章节
     if (reg.test(line)) {
+      let title = line.substring(line.indexOf('第')).replace(/===/g, '')
       currentChapter = {
-        title: line.substring(line.indexOf('第')),
+        title,
         startLine: index + 1, // 行号从 1 开始计数
       }
       chapters.push(currentChapter)
