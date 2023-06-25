@@ -2,7 +2,7 @@
   "name": "zero-reader",
   "displayName": "zero-reader",
   "description": "read in console.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Wangyes",
   "engines": {
     "vscode": "^1.79.0"
