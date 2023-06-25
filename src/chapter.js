@@ -4,6 +4,7 @@ const fs = require('fs')
 // 构造目录单项并添加命令
 class Chapter extends vscode.TreeItem {
   constructor(args) {
+    // 第一个参数为显示的label，第二个参数控制树形是否折叠
     super(args.title, vscode.TreeItemCollapsibleState.None)
     this.command = {
       command: 'zero-reader.jumpChapter',
@@ -50,7 +51,7 @@ function generateChaptersFromTextFile (filePath) {
   let currentChapter = null
   lines.forEach((item, index) => {
     const line = item.trim()
-    let reg = /^[^PS]+第(.{1,9})[章节卷集部篇回](.*)/
+    let reg = /^([^Pp]|)+第(.{1,9})[章节卷集部篇回](.*)/  //不以p开头（PS:）,匹配第几章节
     if (reg.test(line)) {
       currentChapter = {
         title: line.substring(line.indexOf('第')),
