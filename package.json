@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wang-yes/zero-reader-vscode.git"
+    "url": "https://github.com/wangy-yes/zero-reader-vscode.git"
   },
-  "homepage": "https://github.com/wang-yes/zero-reader-vscode/zero-reader/README.md",
+  "homepage": "https://github.com/wangy-yes/zero-reader-vscode/README.md",
   "categories": [
     "Other"
   ],

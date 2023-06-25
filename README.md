@@ -20,7 +20,7 @@ This is the README for your extension "zero-reader". You can read books in conso
  <div align="center"> <img src="images/hide.gif" width = 600 /> </div>
 
 ## 源码
-该插件代码开源，可以参考使用 [zero-reader](https://github.com/wang-yes/zero-reader-vscode/zero-reader/STUDY.md)
+该插件代码开源，可以参考我的学习笔记 [我的vscode插件开发学习文档](https://github.com/wangy-yes/zero-reader-vscode/blob/main/STUDY.md)
 
 ## 更多
 后续会考虑更多功能更新,欢迎大家提供思路。
