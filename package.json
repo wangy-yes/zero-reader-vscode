@@ -7,6 +7,7 @@
   "engines": {
     "vscode": "^1.79.0"
   },
+  "icon": "images/zero.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/wangy-yes/zero-reader-vscode.git"
