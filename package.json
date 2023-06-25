@@ -7,6 +7,11 @@
   "engines": {
     "vscode": "^1.79.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wang-yes/zero-reader-vscode.git"
+  },
+  "homepage": "https://github.com/wang-yes/zero-reader-vscode/zero-reader/README.md",
   "categories": [
     "Other"
   ],
@@ -18,7 +23,7 @@
     "commands": [
       {
         "command": "zero-reader.selectFile",
-        "title": "Hello World"
+        "title": "ZeroReader:选择文件"
       }
     ],
     "viewsContainers": {

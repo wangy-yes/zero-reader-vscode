@@ -1,65 +1,26 @@
-# zero-reader README
+# Zero-Reader 说明
 
-This is the README for your extension "zero-reader". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "zero-reader". You can read books in console board with a simple choose to start.Using shortcut keys can quickly hide the contents and directories of the console. This plugin is for my own use and can be used for your reference.
+这是一款本地看小说的插件，选择 txt 文件后自动生成目录并在控制台输出中阅读。
+使用快捷键可以快速隐藏控制台内容及目录，该插件为本人自用，可供大家参考学习使用。
+> 该插件会在选择文件后自动记录文件所在位置路径，并在下次使用时自动打开该路径文件。
+> The plugin will automatically record the path where the file is located after selecting the file, and automatically open the path file the next time it is used.
 
-## Features
+## 使用方法
+打开方式
+- 打开侧边栏选择文件，完成后自动导入目录,并在控制台打开书籍。
+- 使用下方状态栏选择文件，再次使用下方状态栏选择可以更换文件。
+- 使用命令行执行，按下 ctrl+shift+p，选择 zero-reader：选择文件 命令即可。
+<!-- ![preview1.png](images/start.gif) -->
+ <div align="center"> <img src="images/start.gif" width = 600 /> </div>
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 快捷隐藏
+使用 ctrl+m 快捷显示/隐藏控制台内容及侧边栏目录
+<!-- ![preview1.png](images/hide.gif) -->
+ <div align="center"> <img src="images/hide.gif" width = 600 /> </div>
 
-For example if there is an image subfolder under your extension project workspace:
+## 源码
+该插件代码开源，可以参考使用 [zero-reader](https://github.com/wang-yes/zero-reader-vscode/zero-reader/STUDY.md)
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## 更多
+后续会考虑更多功能更新,欢迎大家提供思路。
