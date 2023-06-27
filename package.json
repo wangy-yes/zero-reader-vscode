@@ -5,7 +5,7 @@
   "version": "0.0.2",
   "publisher": "Wangyes",
   "engines": {
-    "vscode": "^1.79.0"
+    "vscode": "^1.27.0"
   },
   "icon": "images/zero.png",
   "repository": {
@@ -75,7 +75,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.79.0",
+    "@types/vscode": "^1.27.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "20.2.5",
