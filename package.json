@@ -47,7 +47,7 @@
     "viewsWelcome": [
       {
         "view": "chapters",
-        "contents": "没有发现文件， [请先选择文件](https://www.npmjs.com/).\n[选择文件](command:zero-reader.selectFile)"
+        "contents": "没有发现文件，请先选择文件，[插件开源地址](https://github.com/wangy-yes/zero-reader-vscode.git)。\n [选择文件](command:zero-reader.selectFile)"
       }
     ],
     "configuration": {
